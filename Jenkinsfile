@@ -11,7 +11,7 @@ pipeline {
         stage('Restore') {
             steps {
                 script { 
-                    bat 'dotnet restore .\src\src.csproj'
+                    powershell 'dotnet restore .\src\src.csproj'
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    bat 'dotnet build .\src\src.csproj'
+                    powershell 'dotnet build .\src\src.csproj'
                 }
             }
         }
