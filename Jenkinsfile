@@ -32,7 +32,7 @@ pipeline {
             }        
         }
 
-         stage('Build image') {
+        stage('Build image') {
             steps {
                 script {
                     docker.build env.JOB_NAME + ":$BUILD_NUMBER"
