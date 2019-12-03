@@ -22,13 +22,14 @@ pipeline {
                     powershell 'dotnet build'
                 }
             }
+        }
 
         stage('Test') {
             steps {
                 script {
                     powershell 'dotnet test'
                 }
-            }
-        
+            }        
+        }
     }
 }
