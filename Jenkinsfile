@@ -35,7 +35,7 @@ pipeline {
          stage('Build image') {
             steps {
                 script {
-                    powershell 'docker build -t ${env.JOB_BASE_NAME} .'
+                    docker.build $env.JOB_BASE_NAME + ":$BUILD_NUMBER"
                 }
             }        
         }
