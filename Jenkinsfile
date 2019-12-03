@@ -8,26 +8,34 @@ pipeline {
 
     stages {
 
-        stage('Restore') {
-            steps {
-                script { 
-                    powershell 'dotnet restore'
-                }
-            }
-        }
+        // stage('Restore') {
+        //     steps {
+        //         script { 
+        //             powershell 'dotnet restore'
+        //         }
+        //     }
+        // }
 
-        stage('Build') {
+        // stage('Build') {
+        //     steps {
+        //         script {
+        //             powershell 'dotnet build'
+        //         }
+        //     }
+        // }
+
+        // stage('Test') {
+        //     steps {
+        //         script {
+        //             powershell 'dotnet test'
+        //         }
+        //     }        
+        // }
+
+         stage('Build image') {
             steps {
                 script {
-                    powershell 'dotnet build'
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    powershell 'dotnet test'
+                    powershell 'docker build -t ${env.JOB_BASE_NAME} .'
                 }
             }        
         }

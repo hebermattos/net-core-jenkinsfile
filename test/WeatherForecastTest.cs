@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using src;
 
@@ -7,7 +6,7 @@ namespace test
     public class WeatherForecastTest
     {
         [Fact]
-        public void Test1()
+        public void convert_to_fahrenheit()
         {
             var wft = new WeatherForecast();
 
