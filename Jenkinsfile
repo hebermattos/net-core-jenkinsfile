@@ -29,6 +29,6 @@ pipeline {
                     powershell 'dotnet test'
                 }
             }
-        }
+        
     }
 }
