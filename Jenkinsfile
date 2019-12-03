@@ -35,7 +35,7 @@ pipeline {
          stage('Build image') {
             steps {
                 script {
-                    docker.build env.JOB_BASE_NAME + ":$BUILD_NUMBER"
+                    docker.build env.JOB_NAME + ":$BUILD_NUMBER"
                 }
             }        
         }
