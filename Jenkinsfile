@@ -35,7 +35,8 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    docker.build env.JOB_BASE_NAME + ":$BUILD_NUMBER"
+                    def customImage = docker.build(env.JOB_BASE_NAME + ":${env.BUILD_ID}")
+                    customImage.push()
                 }
             }        
         }    
