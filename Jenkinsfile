@@ -35,7 +35,7 @@ pipeline {
         stage('Build & push image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'credentials-id') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-heber') {
                         def customImage = docker.build("hebermattos/" + env.JOB_BASE_NAME + ":${env.BUILD_ID}")
                         customImage.push()
                     }
