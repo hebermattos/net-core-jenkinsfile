@@ -32,11 +32,13 @@ pipeline {
             }        
         }
 
-        stage('Build image') {
+        stage('Build & push image') {
             steps {
                 script {
-                    def customImage = docker.build("hebermattos/" + env.JOB_BASE_NAME + ":${env.BUILD_ID}")
-                    customImage.push()
+                    docker.withRegistry('https://index.docker.io/v1/', 'credentials-id') {
+                        def customImage = docker.build("hebermattos/" + env.JOB_BASE_NAME + ":${env.BUILD_ID}")
+                        customImage.push()
+                    }
                 }
             }        
         }    
