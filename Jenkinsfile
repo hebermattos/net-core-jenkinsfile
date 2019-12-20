@@ -35,9 +35,10 @@ pipeline {
         stage('Build & push image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-heber') {
+                    docker.withRegistry('https://index.docker.io/v1/', '98554180-4e47-4002-acd0-166a5fe01827') {
                         def customImage = docker.build("hebermattos/" + env.JOB_BASE_NAME + ":${env.BUILD_ID}")
                         customImage.push()
+                        customImage.push('latest')
                     }
                 }
             }        
