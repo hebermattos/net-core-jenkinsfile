@@ -35,9 +35,8 @@ pipeline {
         stage('Build & push image') {
             steps {
                 withDockerRegistry([ credentialsId: "b4909509-9376-4c65-9f7f-473f5b522ef5", url: "" ]) {
-                        def customImage = docker.build("hebermattos/" + env.JOB_BASE_NAME + ":${env.BUILD_ID}")
-                        customImage.push()
-                        customImage.push('latest')
+                        powershell 'docker build -t hebermattos/weatherforecast .'
+                        powershell 'docker push hebermattos/weatherforecast:lastest'
                     }                
             }        
         }    
