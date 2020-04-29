@@ -8,7 +8,7 @@ pipeline {
 
     stages {        
 
-        stage('Restore') {
+        stage('Env') {
             steps {
                 script { 
                     powershell 'dir env:'
