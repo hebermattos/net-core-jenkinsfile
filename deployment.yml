@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherforecast-deploy
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        weatherforecast: web
+  template:
+    metadata:
+      labels:
+       weatherforecast: web
+    spec:
+      containers:
+      - name: weatherforecast-container
+        image: wheatherforecast:lastest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: weatherforecast
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+  - port: 5001
+    targetPort: 5001
+    nodePort: 30001

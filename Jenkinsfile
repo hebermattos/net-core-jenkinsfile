@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                   
+                   powershell 'kubectl apply -f .\deployment.yml'
                 }
             }        
         }  
